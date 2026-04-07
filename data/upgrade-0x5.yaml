@@ -1,0 +1,17 @@
+---
+remote_endpoint: http://120.26.182.36:8080/
+name: "vX.YY.Z"
+proposals:
+  - name: upgrade_0x5_trading
+    metadata:
+      title: "Upgrade aptos-trading framework at 0x5"
+      description: "This proposal upgrades the aptos-trading package"
+      source_code_url: "https://github.com/aptos-foundation/mainnet-proposals/tree/main/sources/0x5"
+      discussion_url: "https://github.com/aptos-foundation/mainnet-proposals/issues/XXX"
+    execution_mode: RootSigner
+    update_sequence:
+      - Framework:
+          bytecode_version: 8
+          git_hash: ~
+          packages:
+            - aptos-trading  # 只升级 0x5 的包

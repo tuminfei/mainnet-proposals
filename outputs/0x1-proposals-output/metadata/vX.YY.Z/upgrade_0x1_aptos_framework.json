@@ -1,0 +1,6 @@
+{
+  "title": "Upgrade aptos-framework package at 0x1",
+  "description": "This proposal upgrades only aptos-framework package at 0x1 address",
+  "source_code_url": "https://github.com/aptos-foundation/mainnet-proposals/tree/main/sources/0x1",
+  "discussion_url": "https://github.com/aptos-foundation/mainnet-proposals/issues/XXX"
+}

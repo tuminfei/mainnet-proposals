@@ -1,0 +1,14 @@
+---
+remote_endpoint: http://120.26.182.36:8080/
+name: "vX.YY.Z"
+proposals:
+  - name: increase_max_transaction_size
+    metadata:
+      title: "Increase max transaction size to 2MB"
+      description: "Increase max_transaction_size_in_bytes from 64KB to 2MB (2097152 bytes) to allow large framework upgrades"
+      source_code_url: "https://github.com/aptos-foundation/mainnet-proposals"
+      discussion_url: "https://github.com/aptos-foundation/mainnet-proposals/issues/XXX"
+    execution_mode: RootSigner
+    update_sequence:
+      - Gas:
+          new: current

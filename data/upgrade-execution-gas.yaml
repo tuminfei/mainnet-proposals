@@ -1,0 +1,14 @@
+---
+remote_endpoint: http://120.26.182.36:8080/
+name: "vX.YY.Z"
+proposals:
+  - name: increase_max_execution_gas
+    metadata:
+      title: "Increase max execution gas for large framework upgrades"
+      description: "Increase max_execution_gas from 9.2B to 50B to allow large framework upgrades"
+      source_code_url: "https://github.com/aptos-foundation/mainnet-proposals"
+      discussion_url: "https://github.com/aptos-foundation/mainnet-proposals/issues/XXX"
+    execution_mode: RootSigner
+    update_sequence:
+      - Gas:
+          new: current

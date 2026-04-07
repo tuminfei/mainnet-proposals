@@ -81,3 +81,24 @@ Validate each proposal by checking file naming conventions, checking each link p
 | Source Files must start with `step_*` | `step_1_description_of_proposal` | `description_of_proposal`, `step_1`|
 | Multistep proposals must use alphabetic characters to maintain a multilevel ordered list | `step_1a`, `step_1b`, `step_1c` | `step_1.1`, `step_1.0`, `step_1_multistep_a`, `step_1_a`|
 
+## Example
+```
+ rm -rf /aptos-core/gas-proposals-output && ./bin/aptos-release-builder --aptos-core-path /aptos-core generate-proposals --release-config /aptos-core/upgrade-gas-schedule.yaml --output-dir /aptos-core/gas-proposals-output 2>&1 | tail -15
+
+./bin/topo move run-script \    --script-path /aptos-core/gas-proposals-output/sources/vX.YY.Z/increase_max_transaction_size/0-gas-schedule.move \
+    --sender-account 0xa550c18 \
+    --private-key-file /aptos-core/bin/root_key \ 
+    --url http://120.26.182.36:8080 \
+    --max-gas 10000000 \
+    --assume-yes
+
+rm -rf /aptos-core/0x1-proposals-output && ./bin/aptos-release-builder --aptos-core-path /aptos-core generate-proposals --release-config /aptos-core/upgrade-0x1.yaml --output-dir /aptos-core/0x1-proposals-output 2>&1 | tail -10
+
+./bin/topo move run-script \                  
+    --script-path /aptos-core/0x1-proposals-output/sources/vX.YY.Z/upgrade_0x1_aptos_framework/0-aptos-framework.move \
+    --sender-account 0xa550c18 \
+    --private-key-file /aptos-core/bin/root_key \ 
+    --url http://120.26.182.36:8080 \
+    --max-gas 1000000 \
+    --assume-yes
+```
