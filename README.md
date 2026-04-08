@@ -101,4 +101,15 @@ rm -rf /aptos-core/0x1-proposals-output && ./bin/aptos-release-builder --aptos-c
     --url http://120.26.182.36:8080 \
     --max-gas 1000000 \
     --assume-yes
+
+rm -rf /aptos-core/poc-init-output && ./bin/aptos-release-builder --aptos-core-path /aptos-core generate-proposals --release-config /aptos-core/initialize-poc-registry.yaml --output-dir /aptos-core/poc-init-output 2>&1 | tail -20
+
+./bin/topo move run-script \
+  --script-path /aptos-core/poc-init-output/sources/InitializePOCRegistry/initialize_poc_registry/0-initialize_poc_registry.move \
+  --sender-account 0xa550c18 \
+  --private-key-file /aptos-core/bin/root_key \
+  --url http://120.26.182.36:8080/ \
+  --assume-yes \
+  --framework-local-dir /aptos-core/aptos-move/framework/aptos-framework \
+  --max-gas 50000 2>&1
 ```

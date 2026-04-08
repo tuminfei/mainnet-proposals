@@ -1,0 +1,13 @@
+---
+remote_endpoint: http://120.26.182.36:8080/
+name: "InitializePOCRegistry"
+proposals:
+  - name: initialize_poc_registry
+    metadata:
+      title: "Initialize POC Registry"
+      description: "Initialize the POC registry module at 0x1"
+      source_code_url: "https://github.com/aptos-foundation/mainnet-proposals"
+      discussion_url: "https://github.com/aptos-foundation/mainnet-proposals/issues/XXX"
+    execution_mode: RootSigner
+    update_sequence:
+      - RawScript: proposals-init/initialize_poc_registry.move
